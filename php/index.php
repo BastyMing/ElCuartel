@@ -10,7 +10,7 @@
     <style>
         .producto{
             height: 30px;
-            width: 300px;
+            width: 100%;
             background-color: gray;
         }
     </style>
@@ -49,15 +49,12 @@
                 </div>";
           }
   ?>
-  <div class='col-md-12'>
-      
+  <div class='col-md-4'>
         <div class="producto">
-        <input type="button" onclick="addProduct()" value="Comprar">
-        <input type="button" onclick="getProducts()" value="Ver">
-        <input type="button" onclick="destroyCarro()" value="Destroy">
-        <input type="button" onclick="delItem()" value="Remove">
-    </div>
-    <div id="resultado">
+            <input type="button" onclick="getProducts()" value="Ver">
+            <input type="button" onclick="destroyCarro()" value="Destroy">
+        </div>
+    <div id="resultado" class='col-md-12 bg-danger'>
         
     </div>
 

@@ -1,5 +1,6 @@
 <?php
 require("Carrito.class.php");
+require('conexion.php');
 $carrito = new Carrito();
 if (isset($_POST["action"])) {
     if ($_POST["action"] == "get") {
@@ -8,20 +9,30 @@ if (isset($_POST["action"])) {
         $carro = $carrito->get_content();
         if($carro)
         {
+            $i = 0;
+            $len = count($carro);
             foreach($carro as $producto)
             {
-                echo $producto["id"];
-                echo "<br />";
-                echo $producto["unique_id"];
-                echo "<br />";
-                echo $producto["cantidad"];
-                echo "<br />";
-                echo $producto["precio"];
-                echo "<br />";
-                echo $producto["nombre"];
-                echo "<br />";
-                echo $carrito->precio_total();
-                echo "<br />";
+                ?>
+                <div class='col-md-12'>
+                    <div class='col-md-6 text-success'>
+                        <?php echo $producto["nombre"]; ?>
+                    </div>
+                    <div class='col-md-3'>
+                        <?php echo $producto["cantidad"]; ?>
+                    </div>
+                    <div class='col-md-3'>
+                        <?php echo $producto["cantidad"]*$producto["precio"]; ?>
+                    </div>
+                    <?php
+                         if ($producto === end($carro)){
+                            echo "<div class='col-md-12 text-right'>";
+                                echo $carrito->precio_total();
+                            echo '</div>';
+                        }
+                    ?>
+                </div>
+            <?php
             }
         }else{
             echo "Empy";
@@ -29,12 +40,18 @@ if (isset($_POST["action"])) {
     }
 
     if ($_POST["action"] == "add") {
+        $id = $_POST["id"];
+        $cantidad = $_POST["cantidad"];
+        $producto = getData($id);
+
+        $precio = $producto->precio;
+        $nombre = $producto->nombre;
         //array que crea un producto
         $articulo = array(
-                "id"            =>      14,
-                "cantidad"      =>      3,
-                "precio"        =>      50,
-                "nombre"        =>      "camisetas"
+                "id"            =>      $id,
+                "cantidad"      =>      $cantidad,
+                "precio"        =>      $precio,
+                "nombre"        =>      $nombre
             );
 
         //añadir el producto
@@ -56,3 +73,30 @@ if (isset($_POST["action"])) {
         }
     }
 }
+
+function getData($id){
+    global $conexion;
+    $sql = "SELECT * from local WHERE codigo=$id";
+    $consulta = mysqli_query($conexion,$sql) or die("No se encontro");
+    $registro = $consulta->fetch_object();
+    return $registro;
+}
+
+
+/*
+
+echo $producto["id"];
+echo "<br />";
+echo $producto["unique_id"];
+echo "<br />";
+echo $producto["cantidad"];
+echo "<br />";
+echo $producto["precio"];
+echo "<br />";
+echo $producto["nombre"];
+echo "<br />";
+echo $carrito->precio_total();
+echo "<br />";
+
+
+*/
