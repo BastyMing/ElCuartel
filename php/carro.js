@@ -1,4 +1,6 @@
-function addProduct(){
+
+function addProduct(form){
+        console.log(form);
         var parametros = {
                 "id"       : 14,
                 "cantidad" : 3,
@@ -8,6 +10,7 @@ function addProduct(){
         };
         enviar(parametros);
         getProducts();
+        return false;
 }
 
 
