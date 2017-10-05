@@ -1,11 +1,40 @@
-function realizaProceso(valorCaja1, valorCaja2){
+function addProduct(){
         var parametros = {
-                "valorCaja1" : valorCaja1,
-                "valorCaja2" : valorCaja2
+                "id"       : 14,
+                "cantidad" : 3,
+                "precio"   : 50,
+                "nombre"   : "camisetas",
+                "action"   : "add"
         };
+        enviar(parametros);
+        getProducts();
+}
+
+
+function getProducts(){
+        var parametros = {
+                "action"   : "get"
+        };
+        enviar(parametros);
+}
+function destroyCarro(){
+        var parametros = {
+                "action"   : "destroy"
+        };
+        enviar(parametros);
+}
+function delItem(){
+        var parametros = {
+                "action"   : "remove"
+        };
+        enviar(parametros);
+}
+
+
+function enviar(params){
         $.ajax({
-                data:  parametros,
-                url:   'ejemplo_ajax_proceso.php',
+                data:  params,
+                url:   'c.php',
                 type:  'post',
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");
