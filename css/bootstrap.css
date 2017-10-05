@@ -11,6 +11,10 @@ html {
 }
 body {
   margin: 0;
+  background-image: url('../img/fondo.jpg');
+  background-position: center;
+  background-repeat:no-repeat;  
+  background-attachment:fixed; 
 }
 article,
 aside,
