@@ -4,7 +4,8 @@
       <a class="navbar-brand" href="index.php">El Cuartel</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/lenguajedemarcado/ElCuartel/">Home</a></li>
+      <li><a href="carro.php">Comprar</a></li>
       <li><a href="login.php">Ofertas</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categoria
