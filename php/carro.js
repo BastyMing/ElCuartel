@@ -46,7 +46,7 @@ function delItem(){
 function enviar(params){
         $.ajax({
                 data:  params,
-                url:   'c.php',
+                url:   'php/c.php',
                 type:  'post',
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");

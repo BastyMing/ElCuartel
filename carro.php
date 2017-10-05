@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Carro</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="carro.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="php/carro.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body onload="getProducts()">
   <div class="container">
-  <?php require("../menu.php") ?>
+  <?php require("menu.php") ?>
   <!-- ################################################################################# -->
     <?php
         $con = mysqli_connect("localhost", "root", "", "pdi");
@@ -54,6 +54,6 @@
   </div>
 
     </div>
-  <?php include("../footer.html"); ?>
+  <?php include("footer.html"); ?>
 </body>
 </html>
