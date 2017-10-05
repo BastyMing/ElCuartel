@@ -17,7 +17,7 @@
 </head>
 <body onload="getProducts()">
   <div class="container">
-  <?php require("../menu.html") ?>
+  <?php require("../menu.php") ?>
   <!-- ################################################################################# -->
     <?php
         $con = mysqli_connect("localhost", "root", "", "pdi");

@@ -58,45 +58,57 @@
 </div>
   <!-- ################################################################################# -->
   <div class="col-md-7  col-sm-1" ></div>
-  <div class="col-md-3 col-sm-11">
-  	<form method="POST" action="login.php">
+  <div class="col-md-4 col-sm-11">
+  	<form method="POST" action="register.php">
       <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <label for="email">Nombre:</label>
+        <input type="text" class="form-control" id="email" name="name" required>
       </div>
       <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" name="pwd">
+        <label for="email">Apellido:</label>
+        <input type="text" class="form-control" id="email" name="apell" required>
       </div>
-      <button type="submit" class="btn btn-default" name="ing" id="ing">ingresar</button>
-      <button type="submit" class="btn btn-default" name="reg" id="reg">Registrar</button>
+      <div class="form-group">
+        <label for="email">RUN:</label>
+        <input type="text" class="form-control" id="email" name="rut" required>
+      </div>
+      <div class="well">
+        <label for="email">Fecha de nacimiento:</label>
+          <input data-format="yyyy-MM-dd" type="text" name="fech"></input>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Clave:</label>
+        <input type="password" class="form-control" id="pwd" name="pwd" required>
+      </div>
+      <button type="submit" class="btn btn-default" id="ing" name="ing">Registrar</button>
     </form>
-    <?php
+    
+  </div>
+  <div class="col-md-1" ></div>
+</div>
+
+<?php
     if(isset($_REQUEST["ing"])) {
+      $nombre=$_POST['name'];
+      $Apellido=$_POST['apell'];
+      $run=$_POST['rut'];
+      $fdn=$_POST['fech'];
       $email=$_POST['email'];
       $pass=$_POST['pwd'];
       $con = mysqli_connect("localhost", "root", "", "pdi");
-      $sql = "SELECT * FROM `usuario` WHERE correo='".$email."' and password='".$pass."'";
-
-      $consulta = mysqli_query($con, $sql);
-      $nfilas = mysqli_num_rows($consulta);
-      if($nfilas>0){
-        header("location: ../php/index.php");
-      }
-    }
-    if(isset($_REQUEST["reg"])) {
-      header("location: register.php");
+      $sql = "INSERT INTO `usuario`(`id`, `nombre`, `apellido`, `rut`, `fecha de nacimiento`, `correo`, `password`, `nivel`) VALUES (NULL,'".$nombre."','".$Apellido."','".$run."','".$fdn."','".$email."','".$pass."','0')";
+      echo $sql;
+      if (mysqli_query($con, $sql)){
+       echo '<script language="javascript">alert("accion realizada \n !!! SE HAN DETECTADO 39 VIRUS¡¡¡");</script>';
+       header("location: login.php");
+     }
+      else echo '<script language="javascript">alert("Error!, accion NO realizada");</script>';
     }
     ?>
-  </div>
-  <div class="col-md-1"/>
-</div>
-
-
-
-  
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
  

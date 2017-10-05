@@ -19,7 +19,7 @@
 </head>
 <body>
   <div class="container">
-  <?php require("menu.html") ?>
+  <?php require("menu.php") ?>
   <!-- ################################################################################# -->
 
   <?php
@@ -39,10 +39,6 @@
       <div class='caption'>
         <h3>$nombre</h3>
         <p>$precio</p>
-        <p>
-          <a href='#' class='btn btn-primary' role='button'>Botón</a>
-          <a href='#' class='btn btn-default' role='button'>Botón</a>
-        </p>
       </div>
       </div>
       </div>";
@@ -64,8 +60,6 @@
           <h3>$nombre</h3>
           <p>$precio</p>
           <p>
-          <a href='#' class='btn btn-primary' role='button'>Botón</a>
-          <a href='#' class='btn btn-default' role='button'>Botón</a>
           </p>
           </div>
           </div>
