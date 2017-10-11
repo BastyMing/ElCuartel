@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/lenguajedemarcado/ElCuartel/">Home</a></li>
-      <li><a href="carro.php">Comprar</a></li>
+      <li><a href="/lenguajedemarcado/ElCuartel/php/carro">Carro</a></li>
       <li><a href="login.php">Ofertas</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categoria
@@ -28,9 +28,12 @@
         </div>
       </div>
     </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <ul class="nav navbar-nav navbar-right">}
+
+      <?php echo '
+      <li><a href="'.$rootDir."/php/login/register.php".'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="'.$rootDir."/php/login/register.php".'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+      ?>
     </ul>
   </div>
   </nav>

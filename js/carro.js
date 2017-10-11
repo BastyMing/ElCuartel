@@ -46,7 +46,7 @@ function delItem(){
 function enviar(params){
         $.ajax({
                 data:  params,
-                url:   'php/c.php',
+                url:   '/lenguajedemarcado/ElCuartel/php/carro/c.php',
                 type:  'post',
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require "php/config.php"; ?>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -9,6 +10,8 @@
 
     <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,7 +22,7 @@
 </head>
 <body>
   <div class="container">
-  <?php require("menu.php") ?>
+  <?php include $menu; ?>
   <!-- ################################################################################# -->
 
   <?php
@@ -29,9 +32,10 @@
     $consulta = mysqli_query($con, $sql);
     $nfilas = mysqli_num_rows($consulta);
     while ($registro = mysqli_fetch_array($consulta)){  
-      $nombre = $registro["nombre"];
+      $nombre = ucfirst(strtolower($registro["nombre"]));
       $precio = $registro["precio"];
-      $img = $registro["img"];
+      $img = $registro["img"] ? $registro["img"]:"img/sorry-image-not-available.png";
+
 
         echo "<div class='col-md-4'>
         <div class='thumbnail'>
@@ -69,6 +73,6 @@
 
   ?>
   </div>
-  <?php include("footer.html"); ?>
+  <?php include $footer; ?>
 </body>
 </html>

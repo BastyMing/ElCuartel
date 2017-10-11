@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require "../config.php"; ?>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,7 +9,8 @@
 <title></title>
 
     <!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet">
+<?php echo '<link href="'.$rootDir.'/css/bootstrap.css" rel="stylesheet">' ?>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,7 +22,7 @@
 <body>
   <div class="row">
     <div class="container">
-    <?php include("menu.php"); ?>
+    <?php include $menu; ?>
 </div>
   <!-- ################################################################################# -->
   <div class="col-md-7  col-sm-1" ></div>
@@ -28,11 +30,11 @@
   	<form method="POST" action="login.php">
       <div class="form-group">
         <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" name="pwd">
+        <input type="password" class="form-control" id="pwd" name="pwd" required>
       </div>
       <button type="submit" class="btn btn-default" name="ing" id="ing">ingresar</button>
       <button type="submit" class="btn btn-default" name="reg" id="reg">Registrar</button>
@@ -47,7 +49,7 @@
       $consulta = mysqli_query($con, $sql);
       $nfilas = mysqli_num_rows($consulta);
       if($nfilas>0){
-        header("location: ../php/index.php");
+        header("location: index.php");
       }
     }
     if(isset($_REQUEST["reg"])) {
@@ -69,5 +71,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<?php include $footer; ?>
 </body>
 </html>

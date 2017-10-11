@@ -1,24 +1,28 @@
 <!DOCTYPE html>
+<?php require "../config.php"; ?>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Carro</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="carro.js" type="text/javascript" charset="utf-8"></script>
+    <?php 
+    echo '<link rel="stylesheet" href="'.$rootDir.'/css/bootstrap.css">
+          <script src="'.$rootDir.'/js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+          <script src="'.$rootDir.'/js/carro.js" type="text/javascript" charset="utf-8"></script>';
+    ?>
+    
 </head>
 <body onload="getProducts()">
   <div class="container">
-  <?php require("../menu.php") ?>
+    <?php include $menu; ?>
   <!-- ################################################################################# -->
     <?php
         $con = mysqli_connect("localhost", "root", "", "pdi");
         $sql = "SELECT * from local ";
 
         $consulta = mysqli_query($con,$sql);
-
-        while ($registro = $consulta->fetch_object()){ 
+        for ($i=0; $i <3 ; $i++) {
+          $registro = $consulta->fetch_object();
           $id = $registro->codigo;
           $nombre = $registro->nombre;
           $precio = $registro->precio;
@@ -54,6 +58,6 @@
   </div>
 
     </div>
-  <?php include("../footer.html"); ?>
+  <?php include $footer; ?>
 </body>
 </html>

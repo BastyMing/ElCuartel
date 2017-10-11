@@ -1,6 +1,7 @@
 <?php
-require("Carrito.class.php");
-require('conexion.php');
+require dirname(__DIR__)."/config.php";
+require $serverRoot."/php/carro/Carrito.class.php";
+require $serverRoot.'/php/conexion.php';
 $carrito = new Carrito();
 if (isset($_POST["action"])) {
     if ($_POST["action"] == "get") {
