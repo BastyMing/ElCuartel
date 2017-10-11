@@ -9,7 +9,12 @@
 <title></title>
 
     <!-- Bootstrap -->
-<?php echo '<link href="'.$rootDir.'/css/bootstrap.css" rel="stylesheet">' ?>
+    <?php 
+    echo '<link rel="stylesheet" href="'.$rootDir.'/css/bootstrap.css">
+          <script src="'.$rootDir.'/js/jquery-3.2.1.js" type="text/javascript"></script>
+          <script src="'.$rootDir.'/js/bootstrap.js"></script>
+          <script src="'.$rootDir.'/js/carro.js" type="text/javascript"></script>';
+    ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,10 +24,8 @@
     <![endif]-->
 </head>
 <body>
-  <div class="row">
-    <div class="container">
+  <div class="container">
     <?php include $menu; ?>
-</div>
   <!-- ################################################################################# -->
   <div class="col-md-7  col-sm-1" ></div>
   <div class="col-md-4 col-sm-11">
@@ -41,7 +44,7 @@
       </div>
       <div class="well">
         <label for="email">Fecha de nacimiento:</label>
-          <input data-format="yyyy-MM-dd" type="text" name="fech"></input>
+        <input data-format="yyyy-MM-dd" type="text" name="fech">
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -55,7 +58,7 @@
     </form>
     
   </div>
-  <div class="col-md-1" ></div>
+  <?php include $footer; ?>
 </div>
 
 <?php
@@ -77,11 +80,5 @@
     }
     ?>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<?php include $footer; ?>
 </body>
 </html>

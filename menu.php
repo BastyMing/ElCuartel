@@ -1,10 +1,10 @@
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">El Cuartel</a>
+      <a class="navbar-brand" href="/lenguajedemarcado/ElCuartel/">El Cuartel</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/lenguajedemarcado/ElCuartel/">Home</a></li>
+      <li><a href="/lenguajedemarcado/ElCuartel/">Home</a></li>
       <li><a href="/lenguajedemarcado/ElCuartel/php/carro">Carro</a></li>
       <li><a href="login.php">Ofertas</a></li>
       <li class="dropdown">
@@ -32,7 +32,7 @@
 
       <?php echo '
       <li><a href="'.$rootDir."/php/login/register.php".'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="'.$rootDir."/php/login/register.php".'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+      <li><a href="'.$rootDir."/php/login/login.php".'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
       ?>
     </ul>
   </div>

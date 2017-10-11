@@ -7,8 +7,9 @@
     <title>Carro</title>
     <?php 
     echo '<link rel="stylesheet" href="'.$rootDir.'/css/bootstrap.css">
-          <script src="'.$rootDir.'/js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
-          <script src="'.$rootDir.'/js/carro.js" type="text/javascript" charset="utf-8"></script>';
+          <script src="'.$rootDir.'/js/jquery-3.2.1.js" type="text/javascript"></script>
+          <script src="'.$rootDir.'/js/bootstrap.js"></script>
+          <script src="'.$rootDir.'/js/carro.js" type="text/javascript"></script>';
     ?>
     
 </head>

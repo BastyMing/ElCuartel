@@ -9,9 +9,12 @@
 <title></title>
 
     <!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/bootstrap.js"></script>
+    <?php 
+    echo '<link rel="stylesheet" href="'.$rootDir.'/css/bootstrap.css">
+          <script src="'.$rootDir.'/js/jquery-3.2.1.js" type="text/javascript"></script>
+          <script src="'.$rootDir.'/js/bootstrap.js"></script>
+          <script src="'.$rootDir.'/js/carro.js" type="text/javascript"></script>';
+    ?>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
