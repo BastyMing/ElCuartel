@@ -1411,6 +1411,13 @@ a.bg-danger:hover,
 a.bg-danger:focus {
   background-color: #e4b9b9;
 }
+.bg-dark {
+    background-color: #343a40!important
+}
+a.bg-dark:focus,
+a.bg-dark:hover {
+    background-color: #1d2124!important
+}
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;

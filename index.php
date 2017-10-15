@@ -29,51 +29,29 @@
   <!-- ################################################################################# -->
 
   <?php
-    $con = mysqli_connect("localhost", "root", "", "pdi");
-    $sql = "SELECT * from local ";
+    $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1 ;
+    DB::open();
+    $consulta = DB::getProducts($pagina);
+    $num_pages = DB::getTotalPages();
+    DB::close();
+    while ($registro = $consulta->fetch_object()){  
+      $nombre = ucfirst(strtolower($registro->nombre));
+      $precio = $registro->precio;
+      $img = $registro->img ? $registro->img:"img/sorry-image-not-available.png";
 
-    $consulta = mysqli_query($con, $sql);
-    $nfilas = mysqli_num_rows($consulta);
-    while ($registro = mysqli_fetch_array($consulta)){  
-      $nombre = ucfirst(strtolower($registro["nombre"]));
-      $precio = $registro["precio"];
-      $img = $registro["img"] ? $registro["img"]:"img/sorry-image-not-available.png";
-
-
-        echo "<div class='col-md-4'>
-        <div class='thumbnail'>
-      <img src='$img' alt='...'>
-      <div class='caption'>
-        <h3>$nombre</h3>
-        <p>$precio</p>
-      </div>
-      </div>
-      </div>";
+      echo "<div class='col-md-3'>
+              <div class='thumbnail'>
+                <img src='$img' alt='...'>
+                <div class='caption'>
+                  <strong>$nombre</strong>
+                  <p>$precio</p>
+                </div>
+              </div>
+            </div>";
       }
-      if(isset($_REQUEST["buscar"])) {
-         $sql = "SELECT * from local ";
-
-        $consulta = mysql_query($sql, $con);
-        $nfilas = mysql_num_rows($consulta);
-        while ($registro = mysql_fetch_array($consulta)){  
-          $nombre = $registro["nombre"];
-          $precio = $registro["precio"];
-          $img = $registro["img"];
-
-          echo "<div class='col-md-4'>
-          <div class='thumbnail'>
-          <img src='$img' alt='...'>
-          <div class='caption'>
-          <h3>$nombre</h3>
-          <p>$precio</p>
-          <p>
-          </p>
-          </div>
-          </div>
-          </div>";
-      }
-      }
-
+    for ($i=1; $i<=$num_pages; $i++) {
+      echo "<a href='?pagina=".$i."'>".$i."</a> | ";
+    };
   ?>
   </div>
   <?php include $footer; ?>

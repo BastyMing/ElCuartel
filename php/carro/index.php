@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php require "../config.php"; ?>
+<?php require "../config.php";
+      require $serverRoot.'/php/conexion.php'; ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,11 +19,12 @@
     <?php include $menu; ?>
   <!-- ################################################################################# -->
     <?php
-        $con = mysqli_connect("localhost", "root", "", "pdi");
+        DB::open();
         $sql = "SELECT * from local ";
-
-        $consulta = mysqli_query($con,$sql);
-        for ($i=0; $i <3 ; $i++) {
+        $consulta =  DB::runQRY($sql);
+        DB::close();
+        $limite = 2;
+        for ($i=0; $i <$limite ; $i++) {
           $registro = $consulta->fetch_object();
           $id = $registro->codigo;
           $nombre = $registro->nombre;

@@ -76,10 +76,12 @@ if (isset($_POST["action"])) {
 }
 
 function getData($id){
-    global $conexion;
+    DB::open();
     $sql = "SELECT * from local WHERE codigo=$id";
-    $consulta = mysqli_query($conexion,$sql) or die("No se encontro");
+    DB::runQRY($sql);
+    $consulta = DB::runQRY($sql) or die("No se encontro");
     $registro = $consulta->fetch_object();
+    DB::close();
     return $registro;
 }
 
