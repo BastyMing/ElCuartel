@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<?php require "../config.php";
-      require $serverRoot.'/php/conexion.php'; ?>
+<?php require "../config.php"; ?>
 <html>
 <head>
     <meta charset="utf-8">

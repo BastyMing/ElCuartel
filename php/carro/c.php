@@ -1,7 +1,6 @@
 <?php
 require dirname(__DIR__)."/config.php";
 require $serverRoot."/php/carro/Carrito.class.php";
-require $serverRoot.'/php/conexion.php';
 $carrito = new Carrito();
 if (isset($_POST["action"])) {
     if ($_POST["action"] == "get") {
@@ -36,7 +35,7 @@ if (isset($_POST["action"])) {
             <?php
             }
         }else{
-            echo "Empy";
+            echo "Empty";
         }
     }
 

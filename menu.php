@@ -4,8 +4,8 @@
       <a class="navbar-brand" href="/lenguajedemarcado/ElCuartel/">El Cuartel</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="/lenguajedemarcado/ElCuartel/">Home</a></li>
-      <li><a href="/lenguajedemarcado/ElCuartel/php/carro">Carro</a></li>
+      <li><a href=<?php echo "\"$rootDir\""; ?> >Home</a></li>
+      <li><a href=<?php echo "\"$rootDir/php/carro\""; ?> >Carro</a></li>
       <li><a href="login.php">Ofertas</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categoria

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php require "../config.php";
-require $serverRoot."/php/carro/Carrito.class.php";
-require $serverRoot.'/php/conexion.php';?>
+require $serverRoot."/php/carro/Carrito.class.php"; ?>
 <html>
 <head>
     <meta charset="utf-8">
