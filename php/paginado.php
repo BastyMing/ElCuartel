@@ -63,6 +63,8 @@ while($datos = mysqli_fetch_array($consulta_resultados)) {
 for ($i=1; $i<=$total_paginas; $i++) {
     //En el bucle, muestra la paginación
     echo "<a href='?pagina=".$i."'>".$i."</a> | ";
-}; ?>
+};
+//echo
+ ?>
 
 </body>

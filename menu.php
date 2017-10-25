@@ -1,7 +1,7 @@
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/lenguajedemarcado/ElCuartel/">El Cuartel</a>
+      <a class="navbar-brand" href= <?php echo "$rootDir/?pagina=1" ?> >El Cuartel</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href=<?php echo "\"$rootDir\""; ?> >Home</a></li>
