@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="<?=PUBLIC_PATH?>css/bootstrap.css">
+  <link rel="stylesheet" href="<?=PUBLIC_PATH?>css/bootstrap-datetimepicker.css">
   <script src="<?=PUBLIC_PATH?>js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script src="<?=PUBLIC_PATH?>js/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <script src="<?=PUBLIC_PATH?>/js/bootstrap.js" type="text/javascript"></script>
   <style>
     body{

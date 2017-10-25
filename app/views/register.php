@@ -13,9 +13,16 @@
         <label for="rut">RUN:</label>
         <input type="text" class="form-control" id="email" name="rut" required>
       </div>
-      <div class="well">
+      <div class='form-group'>
         <label for="date">Fecha de nacimiento:</label>
-        <input data-format="yyyy-MM-dd" type="text" id="date" name="date">
+        <div class="input-group date" id="datetimepicker1">
+
+          <input id="date" name="date" type='text' class="form-control" />
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -28,3 +35,6 @@
       <button type="submit" class="btn btn-default" id="ing" name="ing">Registrar</button>
     </form>
   </div>
+  <script type="text/javascript">
+    $("#datetimepicker1").datetimepicker({format: 'yyyy-mm-dd'});
+  </script>
