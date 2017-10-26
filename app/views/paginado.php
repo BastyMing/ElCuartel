@@ -16,8 +16,6 @@
     };
     $pag = PUBLIC_PATH.'index/'.$fin;
     echo "<li><a href='".$cpages."' aria-label='Last'><span class='hidden-xs'>&Uacute;ltima </span>&raquo;</a></li></ul></nav></div>";
-
-
 /*
 
 

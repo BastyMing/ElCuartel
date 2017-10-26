@@ -11,23 +11,19 @@ function getUrlVars(url) {
     return myJson;
 }
 function addProduct(form){
-        var params = getUrlVars(form);
-        var parametros = {
-                "id"       : params.id,
-                "cantidad" : params.cantidad,
-                "action"   : "add"
-        };
-        enviar(parametros);
+        var params = $( form ).serialize();
+        var params = getUrlVars(params);
+        var formAction = $(form).attr("action");
+        url = formAction+"/"+params.id+"/"+params.cantidad;
+        enviar(url);
         getProducts();
         return false;
 }
 
 
 function getProducts(){
-        var parametros = {
-                "action"   : "get"
-        };
-        enviar(parametros);
+        url = "GetProducts";
+        enviar(url);
 }
 function destroyCarro(){
         var parametros = {
@@ -43,15 +39,16 @@ function delItem(){
 }
 
 
-function enviar(params){
+function enviar(url=null, params){
         $.ajax({
                 data:  params,
-                url:   '/lenguajedemarcado/ElCuartel/php/carro/c.php',
+                url:   url,
                 type:  'post',
                 beforeSend: function () {
                         $("#resultado").html("Procesando, espere por favor...");
                 },
                 success:  function (response) {
+                    console.log(response);
                         $("#resultado").html(response);
                 }
         });

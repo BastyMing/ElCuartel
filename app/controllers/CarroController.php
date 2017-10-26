@@ -4,7 +4,7 @@ class CarroController extends Controller
 {
     public function actionIndex()
     {
-        Response::render("menu");
+        Response::render("menu",["title"=>"Carro"]);
         Response::render("carro");
         Response::render("footer");
     }
@@ -12,6 +12,9 @@ class CarroController extends Controller
     {
         $user = User::find($id);
         Response::json(["message" => "hola $user->nombre"]);
+    }
+    public function actionGetProducts(){
+        echo "hol2";
     }
     public function actionAbout()
     {

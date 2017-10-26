@@ -19,21 +19,13 @@ class IndexController extends Controller
         echo "<h1>HOLA</h1>";
         Response::render("footer");
     }
-    public function actionProduct($id=1)
-    {
-        $product = Products::find($id);
-        Response::render("menu");
-        Response::render("products",["product" => $product]);
-        Response::render("footer");
-    }
-
     public function actionShow($pagina=1)
     {
         $cpages = Products::coutPages();
         $products = Products::findlimit($pagina,4);
         Response::render("menu");
         Response::render("products",["products" => $products]);
-        Response::render("paginado",["pagina"=>$pagina, "cpages"=>$cpages]);
+        Response::render("paginado",["page"=>$pagina, "cpages"=>$cpages]);
         Response::render("footer");
     }
 }

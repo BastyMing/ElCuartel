@@ -33,3 +33,4 @@
         </tr>
     </tbody>
 </table>
+<button onclick="getProducts()">GET</button>
