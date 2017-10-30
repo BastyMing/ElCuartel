@@ -1,5 +1,3 @@
-
-
 function getUrlVars(url) {
     var hash;
     var myJson = {};
@@ -13,16 +11,15 @@ function getUrlVars(url) {
 function addProduct(form){
         var params = $( form ).serialize();
         var params = getUrlVars(params);
-        var formAction = $(form).attr("action");
-        url = formAction+"/"+params.id+"/"+params.cantidad;
+        url = "product/comprar"+"/"+params.id+"/"+params.cantidad;
         enviar(url);
-        getProducts();
+        //getProducts();
         return false;
 }
 
 
 function getProducts(){
-        url = "GetProducts";
+        url = "carro/GetProducts";
         enviar(url);
 }
 function destroyCarro(){
@@ -39,17 +36,18 @@ function delItem(){
 }
 
 
-function enviar(url=null, params){
-        $.ajax({
-                data:  params,
-                url:   url,
-                type:  'post',
-                beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
-                },
-                success:  function (response) {
-                    console.log(response);
-                        $("#resultado").html(response);
-                }
-        });
+function enviar(url=null, params=null){
+    var url = PUBLIC_PATH + url;
+    $.ajax({
+            data:  params,
+            url:   url,
+            type:  'post',
+            beforeSend: function () {
+                    $("#resultado").html("Procesando, espere por favor...");
+            },
+            success:  function (response) {
+                console.log(response);
+                $("#resultado").html(response);
+            }
+    });
 }

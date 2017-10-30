@@ -9,14 +9,6 @@ class Products extends Model{
     public $tipo;
     public $img;
     public $proveedor;
-
-
-    public static function findAll(){
-        $model = new static();
-        $sql = "SELECT * FROM ".$model->table;
-        $result = DB::queryall($sql);
-        return $result;
-    }
     
     public static function findlimit($pagina=1){
         $model = new static();

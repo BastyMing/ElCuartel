@@ -27,4 +27,35 @@ class LoginController extends Controller
           else echo '<script language="javascript">alert("Error!, accion NO realizada");</script>';
         }
     }
+    public function actionAuthenticate(){
+      $correo   = $_REQUEST['email'];
+      $password = $_REQUEST['pwd'];
+      $user = User::login($correo);
+      if ($password == $user->password) {
+        Response::json($user);
+      }else{
+        Response::json(["message"=>"Usuario incorrecto"]);
+      }
+      
+      
+    }
 }
+
+/*
+      if(isset($_REQUEST["ing"])) {
+        $email=$_POST['email'];
+        $pass=$_POST['pwd'];
+        $con = mysqli_connect("localhost", "root", "", "pdi");
+        $sql = "SELECT * FROM `usuario` WHERE correo='".$email."' and password='".$pass."'";
+
+        $consulta = mysqli_query($con, $sql);
+        $nfilas = mysqli_num_rows($consulta);
+        if($nfilas>0){
+          header("location: index.php");
+        }
+      }
+      if(isset($_REQUEST["reg"])) {
+        header("location: register.php");
+      }
+
+      */

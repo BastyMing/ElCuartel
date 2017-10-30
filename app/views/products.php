@@ -7,7 +7,7 @@ if (isset($product)) {
           <div class='col-md-6'>
             <div class='thumbnail'>
                 <img src='$product->img' alt='...'>
-                <form action='comprar' method='POST' onsubmit='return addProduct(this)'>
+                <form action='' method='POST' onsubmit='return addProduct(this)'>
                     <div class='caption'>
                         <h3>$product->nombre</h3>
                         <p>$product->precio</p>
@@ -22,7 +22,9 @@ if (isset($product)) {
           </div>
         <div class='col-md-3'></div>";
   echo "<div id='resultado'></div>";
-}else{
+}
+else
+{
       while ($result = $products->fetch()){
         $result = ((object)$result);
         $result->img = $result->img ? $result->img : PUBLIC_PATH."img/sorry-image-not-available.png";

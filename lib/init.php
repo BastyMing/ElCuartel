@@ -7,5 +7,5 @@ require SYS_PATH."Response.php";
 require SYS_PATH."Controller.php";
 require SYS_PATH."Carrito.class.php";
 //////////////////////////////////////////
-require APP_PATH."models/User.php";
+require APP_PATH."models/user.php";
 require APP_PATH."models/products.php";
