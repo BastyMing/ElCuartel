@@ -1,6 +1,6 @@
   <div class="col-md-7  col-sm-1" ></div>
   <div class="col-md-3 col-sm-11">
-  	<form method="POST" action="login/authenticate">
+  	<form method="POST" action="authenticate">
       <div class="form-group">
         <label for="email">Email address:</label>
         <input type="email" class="form-control" id="email" name="email" required>

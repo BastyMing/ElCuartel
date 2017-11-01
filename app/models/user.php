@@ -13,4 +13,14 @@ class User extends Model{
     public $password;
     public $nivel;
 
+    function create($data){
+        $model = new static();
+
+        $sql="INSERT INTO ".$model->table."( nombre, apellido, rut, fecha_de_nacimiento, correo, password, nivel ) VALUES ( :name , :surname, :rut, :birthdate, :email, :password, 1 )";
+
+        $params = [ "name" => $data->nombres, "surname" => $data->apellido, "rut" => $data->rut, "birthdate" => $data->birthdate, "email" => $data->email, "password" => $data->password ];
+
+        return DB::query($sql, $params);
+
+    }
 }

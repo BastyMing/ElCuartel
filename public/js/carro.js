@@ -12,42 +12,32 @@ function addProduct(form){
         var params = $( form ).serialize();
         var params = getUrlVars(params);
         url = "product/comprar"+"/"+params.id+"/"+params.cantidad;
-        enviar(url);
-        //getProducts();
+        enviar(url, null, ()=>{
+            alert("modal");
+        });
         return false;
 }
 
-
-function getProducts(){
-        url = "carro/GetProducts";
+function destroyCarro(){
+        url = "carro/DestroyCarro";
         enviar(url);
 }
-function destroyCarro(){
-        var parametros = {
-                "action"   : "destroy"
-        };
-        enviar(parametros);
-}
-function delItem(){
-        var parametros = {
-                "action"   : "remove"
-        };
-        enviar(parametros);
+function delItem(id){
+        url = "carro/RemoveItem/"+id;
+        enviar(url,null,(res)=>{
+            $(".container").html(res);
+        });
 }
 
 
-function enviar(url=null, params=null){
+function enviar(url=null, params=null, callback=false){
     var url = PUBLIC_PATH + url;
     $.ajax({
             data:  params,
             url:   url,
             type:  'post',
-            beforeSend: function () {
-                    $("#resultado").html("Procesando, espere por favor...");
-            },
             success:  function (response) {
-                console.log(response);
-                $("#resultado").html(response);
+                if (callback(response)) {}
             }
     });
 }

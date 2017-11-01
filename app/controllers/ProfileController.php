@@ -4,7 +4,7 @@ class ProfileController extends Controller
 {
     public function actionIndex()
     {
-        $user = User::find(1);
+        $user = User::find( $_SESSION["USERHASH"] );
         Response::json($user);
     }
     public function actionUser($id=0)

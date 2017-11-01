@@ -24,11 +24,12 @@ class CarroController extends Controller
     {
         $carro = $this->carrito->get_content();
         if (isset($carro[md5($id)])) {
-            $this->carrito->remove_producto(md5($id));   
+            $this->carrito->remove_producto(md5($id));
+            $carro = $this->carrito->get_content();
+            Response::render("carro/carro",["carro" => $carro, "total" => $this->carrito->precio_total()]);
         }else{
             echo "Product not found";
         }
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 

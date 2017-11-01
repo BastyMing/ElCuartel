@@ -29,11 +29,7 @@ class IndexController extends Controller
 
     public function actionShow($pagina=1)
     {
-        $cpages = Products::coutPages();
-        $products = Products::findlimit($pagina,4);
         Response::render("menu");
-        Response::render("products/products",["products" => $products]);
-        Response::render("products/paginado",["page"=>$pagina, "cpages"=>$cpages]);
-        Response::render("footer");
+        Response::render("modal");
     }
 }

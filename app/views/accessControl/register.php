@@ -1,6 +1,6 @@
   <div class="col-md-7"></div>
   <div class="col-md-4">
-  	<form method="POST" action="singup/register">
+  	<form method="POST" action="register">
       <div class="form-group">
         <label for="name">Nombre:</label>
         <input type="text" class="form-control" id="email" name="name" required>
@@ -36,5 +36,11 @@
     </form>
   </div>
   <script type="text/javascript">
-    $("#datetimepicker1").datetimepicker({format: 'yyyy-mm-dd'});
+    $(function () {
+      $('#datetimepicker1').datetimepicker({
+        defaultDate: "1/1/1990",
+        viewMode: 'years',
+        format: 'DD/MM/YYYY'
+      });
+    });
   </script>
