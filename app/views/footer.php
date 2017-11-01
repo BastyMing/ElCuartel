@@ -15,10 +15,9 @@
       }
 
     </style>
-
     <footer class="footer">
         <div>
-            <p>© 2016 Copyright Text </p>
+            <p>© 2017 Copyright CristianDsK Corporation </p>
         </div>
     </footer>
 

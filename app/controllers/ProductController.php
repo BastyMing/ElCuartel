@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $product = Products::find($id);
         Response::render("menu");
-        Response::render("products",["product" => $product]);
+        Response::render("products/products",["product" => $product]);
         Response::render("footer");
         unset($product);
     }

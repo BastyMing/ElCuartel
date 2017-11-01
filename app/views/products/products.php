@@ -1,4 +1,4 @@
- <div class='col-md-12' style="height: 345px;">
+ <div class='col-md-12' style="height: 355px;"">
 <?php
 if (isset($product)) {
   $product->img = $product->img ? $product->img : PUBLIC_PATH."img/sorry-image-not-available.png";
@@ -31,9 +31,9 @@ else
         $result->nombre = ucfirst(strtolower($result->nombre));
 
 
-        echo '<a href="'.PUBLIC_PATH.'product/'.$result->codigo.'">';  ?>
+        echo '<a href="'.SUB_FOLDER.'product/'.$result->codigo.'">';  ?>
 
-        <div class='col-md-3' style="height: 355px;">
+        <div class='col-md-3'>
           <div class='thumbnail'>
             <img src=<?=$result->img?> alt='...'>
             <div class='caption'>

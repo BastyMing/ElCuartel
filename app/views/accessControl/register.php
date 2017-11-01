@@ -1,6 +1,6 @@
   <div class="col-md-7"></div>
   <div class="col-md-4">
-  	<form method="POST" action="register.php">
+  	<form method="POST" action="singup/register">
       <div class="form-group">
         <label for="name">Nombre:</label>
         <input type="text" class="form-control" id="email" name="name" required>

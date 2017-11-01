@@ -10,7 +10,7 @@ class CarroController extends Controller
     {
         $carro = $this->carrito->get_content();
         Response::render("menu",["title"=>"Carro"]);
-        Response::render("carro",["carro" => $carro, "total" => $this->carrito->precio_total()]);
+        Response::render("carro/carro",["carro" => $carro, "total" => $this->carrito->precio_total()]);
         Response::render("footer");
     }
     public function actionGetProducts(){
@@ -31,3 +31,20 @@ class CarroController extends Controller
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
+
+/*
+
+echo $producto["id"];
+echo "<br />";
+echo $producto["unique_id"];
+echo "<br />";
+echo $producto["cantidad"];
+echo "<br />";
+echo $producto["precio"];
+echo "<br />";
+echo $producto["nombre"];
+echo "<br />";
+echo $carrito->precio_total();
+echo "<br />";
+
+*/

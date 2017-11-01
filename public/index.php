@@ -11,5 +11,6 @@ define('SUB_FOLDER', str_replace(PUBLIC_FOLDER, '', dirname($_SERVER['SCRIPT_NAM
 define("PUBLIC_PATH", SUB_FOLDER.PUBLIC_FOLDER."/");
 
 require SYS_PATH."init.php";
+
 $carrito = new Carrito();
 $app = new App;

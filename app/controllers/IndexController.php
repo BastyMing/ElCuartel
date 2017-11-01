@@ -7,10 +7,10 @@ class IndexController extends Controller
         $npage = is_numeric($npage) ? $npage : 1;
         
         $cpages = Products::coutPages();
-        $products = Products::findlimit($npage,4);
+        $products = Products::findlimit($npage);
         Response::render("menu");
-        Response::render("products",["products" => $products]);
-        Response::render("paginado",["page"=>$npage, "cpages"=>$cpages]);
+        Response::render("products/products",["products" => $products]);
+        Response::render("products/paginado",["page"=>$npage, "cpages"=>$cpages]);
         Response::render("footer");
     }
     public function actionAbout($id="default")
@@ -19,13 +19,21 @@ class IndexController extends Controller
         echo "<h1>HOLA</h1>";
         Response::render("footer");
     }
+
+    public function actionBuscar($params="ron"){
+        $busqueda = Products::buscar($params);
+        Response::render("menu");
+        Response::render("busqueda", ["resultados" => $busqueda]);
+        Response::render("footer");
+    }
+
     public function actionShow($pagina=1)
     {
         $cpages = Products::coutPages();
         $products = Products::findlimit($pagina,4);
         Response::render("menu");
-        Response::render("products",["products" => $products]);
-        Response::render("paginado",["page"=>$pagina, "cpages"=>$cpages]);
+        Response::render("products/products",["products" => $products]);
+        Response::render("products/paginado",["page"=>$pagina, "cpages"=>$cpages]);
         Response::render("footer");
     }
 }

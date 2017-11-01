@@ -3,7 +3,6 @@
 class Model{
     protected $table;
     protected $primaryKey = "id";
-    protected $products_per_page=4;
     
     public static function find($id){
         $model = new static();
@@ -13,7 +12,11 @@ class Model{
         $result = DB::query($sql, $params);
 
         foreach ($result as $key => $value) {
-            $model->$key = $value;
+            if (is_numeric($key)) {
+              unset($result->$key);
+            }else{
+                $model->$key = $value;
+            }
         }
 
         return $model;

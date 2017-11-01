@@ -4,7 +4,7 @@
         public function actionIndex()
         {
             Response::render("menu");
-            Response::render("register");
+            Response::render("accessControl/register");
             Response::render("footer");
         }
     }

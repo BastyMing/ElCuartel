@@ -5,7 +5,7 @@ class LoginController extends Controller
     public function actionIndex()
     {
         Response::render("menu");
-        Response::render("login");
+        Response::render("accessControl/login");
         Response::render("footer");
     }
 
@@ -30,13 +30,13 @@ class LoginController extends Controller
     public function actionAuthenticate(){
       $correo   = $_REQUEST['email'];
       $password = $_REQUEST['pwd'];
-      $user = User::login($correo);
-      if ($password == $user->password) {
-        Response::json($user);
+      $user     = User::find( $correo );
+
+      if ( $password == $user->password ) {
+        Response::json( $user );
       }else{
-        Response::json(["message"=>"Usuario incorrecto"]);
+        Response::json( ["message"=>"Usuario incorrecto"] );
       }
-      
       
     }
 }

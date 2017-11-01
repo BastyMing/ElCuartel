@@ -35,20 +35,20 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="<?=PUBLIC_PATH?>index">Home</a></li>
-            <li><a href="<?=PUBLIC_PATH?>carro">Carro</a></li>
-            <li><a href="<?=PUBLIC_PATH?>ofertas">Ofertas</a></li>
+            <li><a href="<?=SUB_FOLDER?>index">Home</a></li>
+            <li><a href="<?=SUB_FOLDER?>carro">Carro</a></li>
+            <li><a href="<?=SUB_FOLDER?>ofertas">Ofertas</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categoria<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="<?=PUBLIC_PATH?>index/about">About</a></li>
-                <li><a href="<?=PUBLIC_PATH?>index/show">Show</a></li>
+                <li><a href="<?=SUB_FOLDER?>index/about">About</a></li>
+                <li><a href="<?=SUB_FOLDER?>index/show">Show</a></li>
                 <li><a href="#">Page 1-3</a></li>
               </ul>
             </li>
           </ul>
 
-          <form class="navbar-form navbar-left" method="POST" action="<?=PUBLIC_PATH?>index/buscar">
+          <form class="navbar-form navbar-left" method="POST" action="<?=SUB_FOLDER?>index/buscar">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-btn" name="busca">
@@ -60,8 +60,8 @@
           </form>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?=PUBLIC_PATH?>singup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="<?=PUBLIC_PATH?>login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="<?=SUB_FOLDER?>singup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="<?=SUB_FOLDER?>login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>

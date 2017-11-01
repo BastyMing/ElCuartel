@@ -1,0 +1,22 @@
+Para agregar nuevas paginas primero hay que crear un controlador con el nombre de la pagina
+    Ejemplo: IndexController 
+**importante debe ser nombrecontrolador+"Controller" con mayuscula**
+estructura basica controlador
+
+<?php
+
+class IndexController extends Controller
+{
+    public function actionIndex()
+    {
+        Response::render("menu");
+        Response::render("footer");
+    }
+}
+
+para las paginas que se quieren mostrar se deve crear un archivo en views
+**importante debe ser .php**
+para mostrarla usa Response::render("nombredearchivo");
+para pasar parametros hay que pasarlos con formato array
+ejemplo: 
+    Response::render("footer", ["nombrevariable" = "informacio"]);
