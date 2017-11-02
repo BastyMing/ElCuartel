@@ -26,4 +26,13 @@ class Products extends Model{
         $total = $total->fetch();
         return ceil(((object)$total)->count / $model->products_per_page);
     }
+
+    public static function buscar(){
+        $model = new static();
+        $sql= "SELECT COUNT(*) as `count` FROM ".$model->table;+
+        
+        $resultado = DB::queryall($sql, $params);
+        $resultado = $total->fetch();
+        return $resultado;
+    }
 }

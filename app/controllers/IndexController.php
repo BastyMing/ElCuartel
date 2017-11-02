@@ -21,9 +21,9 @@ class IndexController extends Controller
     }
 
     public function actionBuscar($params="ron"){
-        $busqueda = Products::buscar($params);
+        $resultados = Products::buscar($params);
         Response::render("menu");
-        Response::render("busqueda", ["resultados" => $busqueda]);
+        Response::render("busqueda", ["resultados" => $resultados]);
         Response::render("footer");
     }
 

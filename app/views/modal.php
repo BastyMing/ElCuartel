@@ -54,6 +54,7 @@ $(function(){
         if($section.hasClass('runnable')){
             var $button = $('<button class="btn btn-primary">Run the code</button>');
             $button.on('click', {code: code}, function(event){
+                console.log(event.data.code);
                 eval(event.data.code);
             });
             $button.insertAfter($section);

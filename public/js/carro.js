@@ -13,7 +13,7 @@ function addProduct(form){
         var params = getUrlVars(params);
         url = "product/comprar"+"/"+params.id+"/"+params.cantidad;
         enviar(url, null, ()=>{
-            alert("modal");
+            modalBuy();
         });
         return false;
 }

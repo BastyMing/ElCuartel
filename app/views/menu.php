@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=.83">
     <title><?=isset($title)?$title:"El Cuartel"; ?></title>
     <link rel="icon" type="image/x-icon" href="<?=PUBLIC_PATH?>img/favicon.ico"/>
 
@@ -18,6 +18,7 @@
     
     
     <script src="<?=PUBLIC_PATH?>js/carro.js" type="text/javascript"></script>
+    <script src="<?=PUBLIC_PATH?>js/modals.js" type="text/javascript"></script>
 
 
     <script>
