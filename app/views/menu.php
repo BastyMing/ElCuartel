@@ -61,7 +61,7 @@
 
           <form class="navbar-form navbar-left" method="POST" action="<?=SUB_FOLDER?>index/buscar">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" name="search">
                 <div class="input-group-btn" name="busca">
                   <button class="btn btn-default" type="submit" name="buscar">
                     <i class="glyphicon glyphicon-search"></i>

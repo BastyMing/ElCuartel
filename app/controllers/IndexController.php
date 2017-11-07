@@ -20,10 +20,11 @@ class IndexController extends Controller
         Response::render("footer");
     }
 
-    public function actionBuscar($params="ron"){
+    public function actionBuscar(){
+        $params = $_POST["search"] ? $_POST["search"] : "agua";
         $resultados = Products::buscar($params);
         Response::render("menu");
-        Response::render("busqueda", ["resultados" => $resultados]);
+        Response::render("products/products", ["products" => $resultados]);
         Response::render("footer");
     }
 

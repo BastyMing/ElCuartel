@@ -27,12 +27,11 @@ class Products extends Model{
         return ceil(((object)$total)->count / $model->products_per_page);
     }
 
-    public static function buscar(){
+    public static function buscar($param){
         $model = new static();
-        $sql= "SELECT COUNT(*) as `count` FROM ".$model->table;+
+        $sql= "SELECT * FROM ".$model->table." WHERE nombre LIKE '%$param%'";
         
-        $resultado = DB::queryall($sql, $params);
-        $resultado = $total->fetch();
+        $resultado = DB::queryall($sql);
         return $resultado;
     }
 }
