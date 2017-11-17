@@ -5,7 +5,10 @@ class ProfileController extends Controller
     public function actionIndex()
     {
         $user = User::find( $_SESSION["USERHASH"] );
-        Response::json($user);
+        Response::render("menu",["title"=>"Usuario"]);
+        //Response::json($user);
+        Response::render("accessControl/perfil",["user" => $user]);
+        Response::render("footer");
     }
     public function actionUser($id=0)
     {
