@@ -32,11 +32,11 @@ class AccessControlController extends Controller
         $user     = User::find( $correo );
 
         if ( $password == $user->password ) {
-            Response::json( $user );
             $_SESSION["USERHASH"] = "$user->correo";
-            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER);
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
         }else{
-            Response::json( ["message"=>"Usuario incorrecto"] );
+            $_SESSION["USERHASH"] = null;
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
         }
     }
     public function actionLogout(){
@@ -69,5 +69,6 @@ class AccessControlController extends Controller
           }
 
         }
+        header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Login");
     }
 }
