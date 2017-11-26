@@ -6,12 +6,13 @@
 	<div class='col-xl-6 thumbnail row' style="background-color:rgba(99,185,255,0.5)">
 		<div class='col-md-8'>
 		<?php foreach($user as $perfil){ ?>
-			<?php if($nombresParaElPerfil[$i]!="" && $perfil != ""){ ?>
+			<?php if($nombresParaElPerfil[$i]!="" && $perfil != "" && $nombresParaElPerfil[$i] !="Password"){ ?>
 				<h1 class="bg-primary"><?= $nombresParaElPerfil[$i] ?> : <?= $perfil ?></h1>
-			<?php }else{$imagen_perfil= $perfil ? $perfil : "no imagen";}
+			<?php }else{$imagen_perfil= $perfil ? $perfil : "/dashboard/ElCuartel/public/img/user-image-not-available.png";}
 			 $i++;
 			}
 	} ?>
+	<button onclick="location.href = '<?= SUB_FOLDER ?>EditP'" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
 </div>
 <br><br><br><div class='col-md-4 thumbnail' id='palafoto'></div></div>
 <script> 

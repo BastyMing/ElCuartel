@@ -23,4 +23,13 @@ class User extends Model{
         return DB::query($sql, $params);
 
     }
+    function edit($data){
+        $model = new static();
+
+        $sql="UPDATE ".$model->table."SET `password`=[ :password ] WHERE email == :email";
+
+        $params = [ "password" => $data->password , "email" => $data->email ];
+
+        return DB::query($sql,$params);
+    }
 }
