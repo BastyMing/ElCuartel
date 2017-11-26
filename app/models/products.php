@@ -29,8 +29,12 @@ class Products extends Model{
 
     public static function buscar($param){
         $model = new static();
-        $sql= "SELECT * FROM ".$model->table." WHERE nombre LIKE '%$param%'";
-        
+        $param = explode(" ", trim($param));
+        $sql= "SELECT * FROM ".$model->table." WHERE ";
+        foreach($param as $p) { 
+            $sql.="nombre LIKE '%$p%'";
+            if ($p !== end($param)) $sql.=" and ";
+        }
         $resultado = DB::queryall($sql);
         return $resultado;
     }
