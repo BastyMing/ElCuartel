@@ -35,8 +35,8 @@ class AccessControlController extends Controller
             $_SESSION["USERHASH"] = "$user->correo";
             header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
         }else{
-            $_SESSION["USERHASH"] = null;
-            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
+            $_SESSION["USERHASH"] = false;
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
         }
     }
     public function actionLogout(){
