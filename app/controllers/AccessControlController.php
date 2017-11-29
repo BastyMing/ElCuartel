@@ -32,7 +32,7 @@ class AccessControlController extends Controller
         $pass = htmlentities(addslashes( $password ));
         $user     = User::find( $correo );
 
-        if ( $password == $user->password ) {
+        if ((password_verify($pass, $user->password))){//( $password == $user->password ) {
             $_SESSION["USERHASH"] = "$user->correo";
             header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
         }else{
