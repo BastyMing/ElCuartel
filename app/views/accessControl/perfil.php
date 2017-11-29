@@ -8,11 +8,11 @@
 		<?php foreach($user as $perfil){ ?>
 			<?php if($nombresParaElPerfil[$i]!="" && $perfil != "" && $nombresParaElPerfil[$i] !="Password"){ ?>
 				<h1 class="text-muted"><?= $nombresParaElPerfil[$i] ?> : <?= $perfil ?></h1>
-			<?php }else{$imagen_perfil= $perfil ? $perfil : "/dashboard/ElCuartel/public/img/user-image-not-available.png";}
+			<?php }else{$imagen_perfil= $perfil ? $perfil : SUB_FOLDER."/img/user-image-not-available.png";}
 			 $i++;
 			}
 	} ?>
-	<button action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
+	<button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/EditP'" action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
 		</div>
 <br> <br> <br> <div class='col-md-4 thumbnail' id='palafoto'></div> </div>
 <script> 
