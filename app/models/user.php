@@ -38,4 +38,9 @@ class User extends Model{
             return DB::query($sql,$params);
         }else{return "error en la contraseña o correo";}
     }
+    function isAdmin($correo){
+        $user = User::find($correo);
+        if ($user->nivel!=2) return true;
+        else return false;
+    }
 }
