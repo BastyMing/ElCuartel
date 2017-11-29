@@ -41,7 +41,7 @@ class AccessControlController extends Controller
     }
     public function actionLogout(){
         session_destroy();
-        header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER);
+        header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
     }
     public function actionRegister()
     {
@@ -52,16 +52,17 @@ class AccessControlController extends Controller
             "rut"       => $_POST['rut'],
             "birthdate" => $_POST['date'],
             "email"     => $_POST['email'],
-            "password"  => $_POST['pwd'],
+            "password"  => $_POST['pwd']
           ];
           $test = User::find($data->email);
           if ( !$test ) {
               $res = User::create( $data );
               unset( $data );
-              if ( !$res )
+              if ( $res )
               {
                echo '<script language="javascript">alert("accion realizada \n !!! SE HAN DETECTADO 39 VIRUS¡¡¡");</script>';
-              }
+               header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Login");
+              }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Singup");}
           }
           else
           {
@@ -69,6 +70,22 @@ class AccessControlController extends Controller
           }
 
         }
-        header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Login");
+        //header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Login");
+    }
+    public function actionUpdate(){
+      if(isset($_POST['name'])) {
+          $correo   = $_REQUEST['correo'];
+          $password = $_REQUEST['oldpass'];
+          $password = $_REQUEST['newpass'];
+          $user     = User::find( $correo );
+
+          if ( $password == $user->password ) {
+              $_SESSION["USERHASH"] = "$user->correo";
+              header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
+          }else{
+              $_SESSION["USERHASH"] = false;
+              header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
+          }
+      }
     }
 }

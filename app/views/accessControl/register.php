@@ -3,7 +3,7 @@
   	<form method="POST" action="register">
       <div class="form-group">
         <label for="name">Nombre:</label>
-        <input type="text" class="form-control" id="email" name="name" required>
+        <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="form-group">
         <label for="apell">Apellido:</label>
@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="rut">RUN:</label>
-        <input type="text" class="form-control" id="email" name="rut" required>
+        <input type="text" class="form-control" id="rut" name="rut" required>
       </div>
       <div class='form-group'>
         <label for="date">Fecha de nacimiento:</label>

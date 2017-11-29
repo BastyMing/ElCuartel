@@ -12,8 +12,8 @@ class ProfileController extends Controller
     public function actionEditP()
     {
     	$user = User::find($_SESSION["USERHASH"]);
-        Response::render("menu",["title"=>"Cambiar contraseña"]);
-        Response::render("accessControl/EditP",["user"=>$user]);
+        Response::render("menu",["title"=>"Contraseña"]);
+        Response::render("accessControl/EditP",["user" => $user]);
         Response::render("footer");
     }
     public function cambios()
