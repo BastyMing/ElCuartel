@@ -38,9 +38,9 @@
   <script type="text/javascript">
     $(function () {
       $('#datetimepicker1').datetimepicker({
-        defaultDate: "1/1/1990",
+        defaultDate: "1990-1-1",
         viewMode: 'years',
-        format: 'DD/MM/YYYY'
+        format: 'YYYY-MM-DD'
       });
     });
   </script>
