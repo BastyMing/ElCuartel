@@ -25,6 +25,8 @@ class User extends Model{
     }
     function edit($data){
         $model = new static();
+        $opass=password_hash( $data->newpass, PASSWORD_DEFAULT, array("cost"=>12));
+        $npass=password_hash( $data->oldpass, PASSWORD_DEFAULT, array("cost"=>12));
 
         $sql="UPDATE ".$model->table."SET `password`=[ :password ] WHERE `email` = :email AND `password` = :oldpwd";
 

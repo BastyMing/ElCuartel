@@ -28,7 +28,7 @@ class AccessControlController extends Controller
     }
     public function actionAuthenticate(){
         $correo   = $_REQUEST['email'];
-        $password = $_REQUEST['pwd'];
+        $password = $pass=password_hash( $_REQUEST['pwd'], PASSWORD_DEFAULT, array("cost"=>12));
         $user     = User::find( $correo );
 
         if ( $password == $user->password ) {
@@ -58,7 +58,7 @@ class AccessControlController extends Controller
           if ( !$test ) {
               $res = User::create( $data );
               unset( $data );
-              if ( $res )
+              if ( !$res )
               {
                echo '<script language="javascript">alert("accion realizada \n !!! SE HAN DETECTADO 39 VIRUS¡¡¡");</script>';
                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."AccessControl/Login");
