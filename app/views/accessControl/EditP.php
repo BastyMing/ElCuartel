@@ -1,7 +1,7 @@
 <?php
 if($user){ ?>
 <div class='col-xl-6 thumbnail row' style="background-color:rgba(99,185,255,0.5)">
-	<form method="POST" action="profile/Cambios">
+	<form method="POST" action="Cambios">
 		<!--correo-->
 		<div class="form-group">
 			<label for="email">Correo:</label>
