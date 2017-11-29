@@ -25,13 +25,16 @@ class User extends Model{
     }
     function edit($data){
         $model = new static();
-        $opass=password_hash( $data->newpass, PASSWORD_DEFAULT, array("cost"=>12));
-        $npass=password_hash( $data->oldpass, PASSWORD_DEFAULT, array("cost"=>12));
+        $opass=htmlentities(addslashes($data->oldpass));
+        $npass=password_hash( $data->newpass, PASSWORD_DEFAULT, array("cost"=>12));
+        $user = User::find( $data->email );
+        if(password_verify($opass, $user->password)){
 
-        $sql="UPDATE ".$model->table."SET `password`=[ :password ] WHERE `email` = :email AND `password` = :oldpwd";
+            $sql="UPDATE ".$model->table."SET `password`=[ :password ] WHERE `email` = :email AND `password` = :oldpwd";
 
-        $params = [ ":password" => $data->newpass , ":email" => $data->email, ":oldpwd" => $data->oldpass ];
+            $params = [ ":password" => $npass , ":email" => $data->email, ":oldpwd" => $data->oldpass ];
 
-        return DB::query($sql,$params);
+            return DB::query($sql,$params);
+        }else{return "error en la contraseña o correo";}
     }
 }

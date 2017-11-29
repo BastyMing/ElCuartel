@@ -1,11 +1,11 @@
 <?php
 if($user){ ?>
 <div class='col-xl-6 thumbnail row' style="background-color:rgba(99,185,255,0.5)">
-	<form method="POST" action="register">
+	<form method="POST" action="cambios">
 		<!--correo-->
 		<div class="form-group">
 			<label for="oldpass">Correo:</label>
-			<input type="text" class="form-control" id="correo" name="correo" required>
+			<input type="text" class="form-control" id="correo" name="correo" value=<?php echo "'$user->email'"; ?> required>
 			<label for="oldpass">Contraseña anterior:</label>
 			<input type="password" class="form-control" id="oldpass" name="oldpass" required>
 			<label for="newpass">Contraseña:</label>
