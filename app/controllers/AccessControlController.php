@@ -28,7 +28,8 @@ class AccessControlController extends Controller
     }
     public function actionAuthenticate(){
         $correo   = $_REQUEST['email'];
-        $password = $pass=password_hash( $_REQUEST['pwd'], PASSWORD_DEFAULT, array("cost"=>12));
+        $password = $_REQUEST['pwd'];
+        $pass = htmlentities(addslashes( $password ));
         $user     = User::find( $correo );
 
         if ( $password == $user->password ) {
@@ -36,6 +37,7 @@ class AccessControlController extends Controller
             header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile");
         }else{
             $_SESSION["USERHASH"] = false;
+            session_destroy();
             header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
         }
     }

@@ -12,7 +12,7 @@
 			 $i++;
 			}
 	} ?>
-	<button onclick="location.href = '<?= SUB_FOLDER ?>EditP'" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
+	<button action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
 		</div>
 <br> <br> <br> <div class='col-md-4 thumbnail' id='palafoto'></div> </div>
 <script> 
