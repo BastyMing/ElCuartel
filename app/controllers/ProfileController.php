@@ -19,7 +19,6 @@ class ProfileController extends Controller
     public function cambios()
     {
     	$params = $_POST["update"];
-    	$resultados = User::edit($params);
-    	//header 
+    	User::edit($params);
     }
 }

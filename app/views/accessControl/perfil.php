@@ -1,13 +1,23 @@
 <?php
 	$i=0;
+	if(!empty($_GET['msj'])){
+		echo "<div class='col-xl-10 thumbnail row' style='background-color:rgba(240,100,100,1)'>
+		<h1>error: no se realizaron los cambios</h1>
+		</div>";
+	}
+
 	if($user){
 	//el nombre es largo para no interrumpir a nadie XD ?>
 	<div class='col-xl-10 thumbnail row' style="background-color:rgba(240,240,255,0.9)">
-		<br> <br> <br> <div class='col-md-4 thumbnail' id='palafoto'></div>
-		<button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/EditP'" action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button>
+		<h1>Tu perfil:</h1>
+		<div class='col-md-4'><div class="thumbnail" id='palafoto'></div>
+		<button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/EditP'" action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button></div>
+
 		<div class='col-md-8'>
-			<table border="1 px">
-				<caption>Datos</caption>
+			<table style="background-color: white;" class="table table-striped">
+				<thead>
+					<tr><td>Datos:</td><td></td></tr>
+				</thead>
 				<tbody>
 					<tr>
 						<td>Nombre:</td>
@@ -29,9 +39,12 @@
 						<td>Correo:</td>
 						<td><?= $user->correo ?></td>
 					</tr>
+					<?php 
+						if($user->celular){echo "<tr><td>Celular:</td><td>".$user->celular."</td></tr>";}
+						if($user->abitabout){echo "<tr><td>Sobre mi:</td><td>".$user->abitabout."</td></tr>";}
+					 ?>
 				</tbody>
 			</table>
-		</div>
 		</div>
  </div>
  <?php $imagen_perfil = $user->img ? $user->img : SUB_FOLDER."/img/user-image-not-available.png"

@@ -1,7 +1,7 @@
 <?php
 if($user){ ?>
 <div class='col-xl-6 thumbnail row' style="background-color:rgba(99,185,255,0.5)">
-	<form method="POST" action="cambios">
+	<form method="POST" action="perfil/cambios">
 		<!--correo-->
 		<div class="form-group">
 			<label for="oldpass">Correo:</label>
@@ -13,7 +13,7 @@ if($user){ ?>
 			<label for="cnewpass">Confirme contraseña:</label>
 			<input type="password" class="form-control" id="cnewpass" name="cnewpass" required>
 		</div>
-		<button type="submit" class="btn btn-default" id="ing" name="ing">Registrar</button>
+		<button type="submit" class="btn btn-default" id="ing" name="ing">Guardar cambios</button>
 	</form>
 </div>
 <?php
