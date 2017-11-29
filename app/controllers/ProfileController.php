@@ -16,9 +16,22 @@ class ProfileController extends Controller
         Response::render("accessControl/EditP",["user" => $user]);
         Response::render("footer");
     }
-    public function cambios()
+    public function actionCambios()
     {
-    	$params = $_POST["update"];
-    	User::edit($params);
+        $user = User::find($_SESSION["USERHASH"]);
+    	if(isset($_POST['correo'])) {
+          $data = (object) [
+            "email"   => $_POST['email'],
+            "oldpass"  => $_POST['oldpass'],
+            "newpass"       => $_POST['newpass']
+          ];
+          $resultado = User::edit($data);
+          if($resultado != "nonononono"){
+            session_destroy();
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
+          }else{
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=1");
+          }
+      }
     }
 }

@@ -26,16 +26,17 @@ class User extends Model{
     }
     function edit($data){
         $model = new static();
-        $opass=htmlentities(addslashes($data->oldpass));
+        $oshu = $data->oldpass;//oshushacreoqueestoestabamaltodoestetiempoXD
+        $oldpass=htmlentities(addslashes($oshu));
         $npass=password_hash( $data->newpass, PASSWORD_DEFAULT, array("cost"=>12));
         $user = User::find( $data->email );
-        if(password_verify($opass, $user->password)){
+        if(password_verify($oldpass, $user->password)){
 
-            $sql="UPDATE ".$model->table."SET `password`=[ :password ] WHERE `email` = :email AND `password` = :oldpwd";
+            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `correo` == ':email'";
 
-            $params = [ ":password" => $npass , ":email" => $data->email, ":oldpwd" => $data->oldpass ];
+            $params = [ ":password" => $npass , ":email" => $user->email];
 
             return DB::query($sql,$params);
-        }else{return "error en la contraseña o correo";}
+        }else{return "nonononono";}
     }
 }
