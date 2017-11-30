@@ -25,7 +25,7 @@ class AdminController extends Controller
         if (User::isAdmin($_SESSION["USERHASH"]))
             header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER.'login/');
         if ( $action == "modify") {
-           $datos = Product::findall();
+           $datos = Products::findall();
         }
         Response::render( "adminPanel/dashboard", [ "contenido" => "adminPanel/Product".ucfirst(strtolower($action)), "datos"=> $datos ] );
     }
