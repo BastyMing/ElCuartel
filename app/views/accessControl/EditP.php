@@ -2,10 +2,9 @@
 if($user){ ?>
 <div class='col-xl-6 thumbnail row' style="background-color:rgba(99,185,255,0.5)">
 	<form method="POST" action="Cambios">
-		<!--correo-->
 		<div class="form-group">
 			<label for="email">Correo:</label>
-			<input type="email" class="form-control" id="email" name="email" value= <?= $user->email ?> required>
+			<input type="email" class="form-control" id="email" name="email" value= <?php echo "'$user->email'"; ?> required>
 		</div>
 		<div class="form-group">
 			<label for="oldpass">Contraseña anterior:</label>

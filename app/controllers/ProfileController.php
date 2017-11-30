@@ -21,16 +21,16 @@ class ProfileController extends Controller
         $user = User::find($_SESSION["USERHASH"]);
     	if(isset($_POST['email'])) {
           $data = (object) [
-            "email"   => $_POST['email'],
-            "oldpass"  => $_POST['oldpass'],
-            "newpass"       => $_POST['newpass']
+            "email"   => $_REQUEST['email'],
+            "oldpass"  => $_REQUEST['oldpass'],
+            "newpass"       => $_REQUEST['newpass']
           ];
-          $test = User::find($data->email);
+          $test = User::find($user->email);
           if ( !$test ) {
-              $resultado = User::edit($data);
+              $resultado = User::edit($data->email,$data->oldpass,$data->newpass);
               if($resultado != "nonononono"){
                 //session_destroy();
-                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=$resultado");
+                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=");
               }else{
                 header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=correo o clave inocrrecta");
               }

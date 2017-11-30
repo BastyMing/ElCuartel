@@ -12,6 +12,9 @@ class User extends Model{
     public $email;
     public $password;
     public $img;
+    public $oldpass;
+    public $npass;
+
 
     function create($data){
         $model = new static();
@@ -24,12 +27,12 @@ class User extends Model{
         return DB::query($sql, $params);
 
     }
-    function edit($data){
+    function edit($data1,$data2,$data3){
         $model = new static();
-        $oshu = $data->oldpass;//oshushacreoqueestoestabamaltodoestetiempoXD
+        $oshu = $data2;//oshushacreoqueestoestabamaltodoestetiempoXD
         $oldpass=htmlentities(addslashes($oshu));
-        $npass=password_hash( $data->newpass, PASSWORD_DEFAULT, array("cost"=>12));
-        $user = User::find( $data->email );
+        $npass=password_hash( $data3, PASSWORD_DEFAULT, array("cost"=>12));
+        $user = User::find( $data1 );
         if(password_verify($oldpass, $user->password)){
 
             $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `correo` = ':email'";
