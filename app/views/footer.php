@@ -17,7 +17,7 @@
     </style>
     <footer class="footer">
         <div>
-            <p>© 2017 Copyright CristianDsK Corporation </p>
+            <p>© 2017 Copyright JOMIBAC Corporation </p>
         </div>
     </footer>
 
