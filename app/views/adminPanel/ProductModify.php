@@ -27,8 +27,8 @@
                         <td><?= $product->img; ?></td>
                         <td><?= $product->proveedor; ?></td>
                         <td>
-                            <img src="./img/eliminar.png" class="opciones" alt="Eliminar">
-                            <img src="./img/edit.png" class="opciones" alt="Editar">
+                            <a href="<?= SUB_FOLDER ?>admin/productdelete/<?= $product->codigo ?>" class="btn btn-danger glyphicon glyphicon-remove" role="button"> Eliminar</a>
+                            <a href="<?= SUB_FOLDER ?>admin/productedit/<?= $product->codigo ?>" class="btn btn-info glyphicon glyphicon-pencil"> Editar</a>
                         </td>
                     </tr>
                   <?php }?>

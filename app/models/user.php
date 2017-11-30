@@ -28,7 +28,7 @@ class User extends Model{
     }
     function isAdmin($correo){
         $user = User::find($correo);
-        if ($user->nivel!=2) return true;
+        if ($user->nivel==2) return true;
         else return false;
     }
     function findall(){

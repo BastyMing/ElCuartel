@@ -31,8 +31,8 @@
                         <td>Encrypted</td>
                         <td><?= $user->nivel; ?></td>
                         <td>
-                            <img src="./img/eliminar.png" class="opciones" alt="Eliminar">
-                            <img src="./img/edit.png" class="opciones" alt="Editar">
+                            <a href="<?= SUB_FOLDER ?>admin/userdelete/<?= $user->correo ?>" class="btn btn-danger glyphicon glyphicon-remove" role="button"> Eliminar</a>
+                            <a href="<?= SUB_FOLDER ?>admin/useredit/<?= $user->correo ?>" class="btn btn-info glyphicon glyphicon-pencil"> Editar</a>
                         </td>
                     </tr>
                   <?php }?>

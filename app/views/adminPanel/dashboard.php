@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=.83">
-    <title><?=isset($title)?$title:"El Cuartel"; ?></title>
+    <title><?=isset($title)?$title:"AdminPanel"; ?></title>
     <link rel="icon" type="image/x-icon" href="<?=PUBLIC_PATH?>img/favicon.ico"/>
     <?php Response::render( "adminPanel/assets" ); ?>
+    <script>
+      var PUBLIC_PATH = "<?=PUBLIC_PATH?>";
+    </script>
   </head>
   <body>
   <nav class="navbar navbar-default sidebar" role="navigation">
