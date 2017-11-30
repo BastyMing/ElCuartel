@@ -40,7 +40,7 @@
                 } ?>
                 </tbody>
             </table>
-            <a href="carro/boleta" class="btn btn-info">Comprar</a>
+            <a href="<?= SUB_FOLDER ?>carro/boleta" class="btn btn-info">Comprar</a>
         <?php }else{ ?>
             <div class="panel-body"> No hay productos agregados</div>
         <?php } ?>
