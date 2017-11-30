@@ -1,4 +1,4 @@
-    <form action="php/agregarcontrol.php" method="POST" accept-charset="utf-8">
+    <form action="<?= PUBLIC_PATH ?>admin/product/create/" method="POST" accept-charset="utf-8">
         <div class="form-group">
             <label for="">Nombre</label>
             <input type="text" name="nombre" class="form-control" placeholder="Bebida" required>
