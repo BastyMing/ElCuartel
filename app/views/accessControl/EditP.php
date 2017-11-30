@@ -5,11 +5,17 @@ if($user){ ?>
 		<!--correo-->
 		<div class="form-group">
 			<label for="email">Correo:</label>
-			<input type="text" class="form-control" id="email" name="email" value= <?= $user->email ?> required>
+			<input type="email" class="form-control" id="email" name="email" value= <?= $user->email ?> required>
+		</div>
+		<div class="form-group">
 			<label for="oldpass">Contraseña anterior:</label>
 			<input type="password" class="form-control" id="oldpass" name="oldpass" required>
+		</div>
+		<div class="form-group">
 			<label for="newpass">Contraseña:</label>
 			<input type="password" class="form-control" id="newpass" name="newpass" required>
+		</div>
+		<div class="form-group">
 			<label for="cnewpass">Confirme contraseña:</label>
 			<input type="password" class="form-control" id="cnewpass" name="cnewpass" required>
 		</div>

@@ -32,7 +32,7 @@ class User extends Model{
         $user = User::find( $data->email );
         if(password_verify($oldpass, $user->password)){
 
-            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `correo` == ':email'";
+            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `correo` = ':email'";
 
             $params = [ ":password" => $npass , ":email" => $user->email];
 

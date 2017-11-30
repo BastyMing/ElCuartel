@@ -29,12 +29,12 @@ class ProfileController extends Controller
           if ( !$test ) {
               $resultado = User::edit($data);
               if($resultado != "nonononono"){
-                session_destroy();
-                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
+                //session_destroy();
+                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=$resultado");
               }else{
-                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=1");
+                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=correo o clave inocrrecta");
               }
-          }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=1");}
+          }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=no esta iniciada la seicion");}
       }
     }
 }
