@@ -26,6 +26,7 @@ class ProfileController extends Controller
             "newpass"       => $_REQUEST['newpass']
           ];
           $test = User::find($user->email);
+          echo "texto";exit();
           if ( !$test ) {
               $resultado = User::edit($data->email,$data->oldpass,$data->newpass);
               if($resultado != "nonononono"){
