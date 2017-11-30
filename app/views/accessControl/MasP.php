@@ -14,7 +14,7 @@
       </div>
       <div class="form-group">
         <label for="abt">Sobre ti:</label>
-        <input type="text" class="form-control" id="abt" name="abt" value="Escribe algo sobre ti." maxlength="400">
+        <input  type="text" class="form-control" id="abt" name="abt" value="Escribe algo sobre ti." maxlength="400" >
       </div>
       <button type="submit" class="btn btn-default" name="ing" id="ing">agregar datos</button>
     </form>
