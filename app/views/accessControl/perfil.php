@@ -11,7 +11,7 @@
 	<div class='col-xl-10 thumbnail row' style="background-color:rgba(240,240,255,0.9)">
 		<h1>Tu perfil:</h1>
 		<div class='col-md-4'><div class="thumbnail" id='palafoto'></div>
-		<button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/EditP'" action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar datos</button></div>
+		<button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/EditP'" action="EditP" id="staid" type="button" class="btn btn-primary" >cambiar pass</button><button onclick="location.href = '<?php echo SUB_FOLDER; ?>/profile/Ag'" action="Ag" id="staid2" type="button" class="btn btn-primary" >cambiar datos</button></div>
 
 		<div class='col-md-8'>
 			<table style="background-color: white;" class="table table-striped">

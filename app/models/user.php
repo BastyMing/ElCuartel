@@ -5,6 +5,7 @@ class User extends Model{
     protected $table = "usuario";
     protected $primaryKey = "correo";
     
+    public $id;
     public $nombre;
     public $apellido;
     public $rut;
@@ -12,8 +13,6 @@ class User extends Model{
     public $email;
     public $password;
     public $img;
-    public $oldpass;
-    public $npass;
 
 
     function create($data){
@@ -35,9 +34,9 @@ class User extends Model{
         $user = User::find( $data1 );
         if(password_verify($oldpass, $user->password)){
 
-            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `correo` = ':email'";
+            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `usuario`.`id` = ':id'";
 
-            $params = [ ":password" => $npass , ":email" => $user->email];
+            $params = [ ":password" => $npass , ":email" => $user->id];
 
             return DB::query($sql,$params);
         }else{return "nonononono";}
