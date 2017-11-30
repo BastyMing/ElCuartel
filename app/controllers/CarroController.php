@@ -31,6 +31,14 @@ class CarroController extends Controller
             echo "Product not found";
         }
     }
+    public function actionBoleta(){
+        if (!isset($_SESSION["USERHASH"])) {
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."accessControl/login");
+        }
+        $user = User::find( $_SESSION["USERHASH"] );
+        $carro = $this->carrito->get_content();
+        Response::render("carro/boleta",["carro" => $carro, "total" => $this->carrito->precio_total(), "userinf"=> $user]);
+    }
 }
 
 /*
