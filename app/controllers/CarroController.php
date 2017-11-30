@@ -37,7 +37,7 @@ class CarroController extends Controller
         }
         $user = User::find( $_SESSION["USERHASH"] );
         $carro = $this->carrito->get_content();
-        Response::render("carro/boleta",["carro" => $carro, "total" => $this->carrito->precio_total(), "userinf"=> $user]);
+        Response::render("carro/boleta",["carro" => $carro, "total" => $this->carrito->precio_total(), "user"=> $user]);
     }
 }
 
