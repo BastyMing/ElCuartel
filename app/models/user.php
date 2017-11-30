@@ -47,4 +47,9 @@ class User extends Model{
         if ($user->nivel!=2) return true;
         else return false;
     }
+    function findall(){
+        $model = new static();
+        $sql = "SELECT * FROM ".$model->table;
+        return DB::queryall($sql);
+    }
 }
