@@ -45,6 +45,8 @@
     <!-- Main Content -->
     <div class="container-fluid" style="margin-left: 200px;">
         <div class="side-body">
-
+          <?php if (!empty($contenido)) Response::render( $contenido ); {
+            # code...
+          } ?>
         </div>
     </div>

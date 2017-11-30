@@ -19,6 +19,12 @@ class Products extends Model{
         return DB::queryall($sql);
     }
 
+    public static function findall(){
+        $model = new static();
+        $sql = "SELECT * FROM ".$model->table;
+        return DB::queryall($sql);
+    }
+
     public static function coutPages(){
         $model = new static();
         $sql= "SELECT COUNT(*) as `count` FROM ".$model->table;
