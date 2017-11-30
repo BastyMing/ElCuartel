@@ -72,7 +72,8 @@
 
           <ul class="nav navbar-nav navbar-right">
             <?php if (isset($_SESSION["USERHASH"])) { ?>
-            
+
+            <li><a href="<?=SUB_FOLDER?>admin/"><span class="glyphicon glyphicon-user"></span> AdminPanel </a></li>
             <li><a href="<?=SUB_FOLDER?>profile"><span class="glyphicon glyphicon-user"></span> Perfil </a></li>
             <li><a href="<?=SUB_FOLDER?>AccessControl/Logout"><span class="glyphicon glyphicon-log-out"></span> Desconectar </a></li>
 

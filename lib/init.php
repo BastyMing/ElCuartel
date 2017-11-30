@@ -9,3 +9,4 @@ require SYS_PATH."Carrito.class.php";
 //////////////////////////////////////////
 require APP_PATH."models/user.php";
 require APP_PATH."models/products.php";
+require APP_PATH."models/tipos.php";
