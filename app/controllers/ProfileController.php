@@ -36,31 +36,32 @@ class ProfileController extends Controller
 
             $params = [ ":ddc" => $ddc, ":img" => $img, ":cel" => $cel, ":abt" => $abt, ":id" => $user->id];
 
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=datos añadidos");
+
             return DB::query($sql, $params);
             }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=no esta iniciada la seicion");}
         }
     }
 
-    public function actionCambios()
+    public function actionCambiosep()
     {
+        if(User::find($_SESSION["USERHASH"])){
         $user = User::find($_SESSION["USERHASH"]);
-    	if(isset($_POST['email'])) {
-          $data = (object) [
-            "email"   => $_REQUEST['email'],
-            "oldpass"  => $_REQUEST['oldpass'],
-            "newpass"       => $_REQUEST['newpass']
-          ];
-          $test = User::find($user->email);
-          echo "texto";exit();
-          if ( !$test ) {
-              $resultado = User::edit($data->email,$data->oldpass,$data->newpass);
-              if($resultado != "nonononono"){
-                //session_destroy();
-                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=");
-              }else{
-                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=correo o clave inocrrecta");
-              }
+    	if(isset($_POST['email'])){
+            $model = new static();
+            $oldpass=htmlentities(addslashes($_REQUEST['oldpass']));
+            $npass=password_hash( $_REQUEST['newpass'], PASSWORD_DEFAULT, array("cost"=>12));
+            $ladeahora = $user->password;
+            if(password_verify($oldpass,$ladeahora)){
+
+                $sql="UPDATE `usuario` SET `password`= :password  WHERE `usuario`.`id` = :id";
+
+                $params = [ ":password" => $npass , ":id" => $user->id];
+
+                return DB::query($sql,$params);
+            }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=error de password");}
+              
           }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=no esta iniciada la seicion");}
-      }
+     }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=quizawea");}
     }
 }

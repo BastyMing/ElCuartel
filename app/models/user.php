@@ -26,21 +26,6 @@ class User extends Model{
         return DB::query($sql, $params);
 
     }
-    function edit($data1,$data2,$data3){
-        $model = new static();
-        $oshu = $data2;//oshushacreoqueestoestabamaltodoestetiempoXD
-        $oldpass=htmlentities(addslashes($oshu));
-        $npass=password_hash( $data3, PASSWORD_DEFAULT, array("cost"=>12));
-        $user = User::find( $data1 );
-        if(password_verify($oldpass, $user->password)){
-
-            $sql="UPDATE ".$model->table."SET `password`= :password  WHERE `usuario`.`id` = ':id'";
-
-            $params = [ ":password" => $npass , ":email" => $user->id];
-
-            return DB::query($sql,$params);
-        }else{return "nonononono";}
-    }
     function isAdmin($correo){
         $user = User::find($correo);
         if ($user->nivel!=2) return true;

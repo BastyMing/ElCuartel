@@ -1,5 +1,4 @@
-  <div class="col-md-7  col-sm-1" ></div>
-  <div class="col-md-3 col-sm-11">
+  <div class="col-xl-6 thumbnail  col-md-10" style="background-color:rgba(99,185,255,0.9)">
   	<form method="POST" action="Metertodo">
       <div class="form-group">
         <label for="img">Ulr Imagen:</label>

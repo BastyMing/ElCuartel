@@ -1,8 +1,8 @@
 <?php
 	$i=0;
 	if(!empty($_GET['msj'])){$msj=$_GET['msj'];
-		echo "<div class='col-xl-10 thumbnail row' style='background-color:rgba(240,100,100,1)'>
-		<h1>error: $msj</h1>
+		echo "<div class='col-xl-10 thumbnail row' style='background-color:rgba(200,200,240,1)'>
+		<h1>aviso: $msj</h1>
 		</div>";
 	}
 
