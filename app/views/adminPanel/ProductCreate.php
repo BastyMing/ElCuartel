@@ -7,7 +7,7 @@ $productInfo = (object)["codigo"=>"",
                     "proveedor"=>"",
                     "button"=>"Agregar"];
 $productInfo = (object) array_merge((array)$productInfo, (array)$datos);
- ?>
+?>
 
 <form action="<?= PUBLIC_PATH ?>admin/product/create/" method="POST" accept-charset="utf-8">
         <div class="form-group">
@@ -21,7 +21,7 @@ $productInfo = (object) array_merge((array)$productInfo, (array)$datos);
         <div class="form-group">
             <label for="">Tipo</label>
             <select class="form-control" name="tipo" required>
-                <option><?= ucfirst(strtolower(Tipos::find($productInfo->tipo)->tipo)) ?></option>
+                <option><?= ucfirst(strtolower(( is_numeric($productInfo->tipo) ? Tipos::find($productInfo->tipo)->tipo:$productInfo->tipo ))) ?></option>
                 <?php
                 $query = Tipos::findall();
                 while ($valores = $query->fetch()) {

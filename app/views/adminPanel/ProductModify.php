@@ -6,13 +6,13 @@
     <table id="tablabase">
         <thead>
             <tr>
-                <th height="40" width="70">ID</th>
+                <th height="40" width="30">ID</th>
                 <th height="40">Nombre</th>
                 <th height="40">Precio</th>
                 <th height="40">Tipo</th>
                 <th height="40">Imagen</th>
                 <th height="40">Proveedor</th>
-                <th></th>
+                <th width="180"></th>
             </tr>
         </thead>
         <tbody>
@@ -27,8 +27,8 @@
                         <td><?= $product->img; ?></td>
                         <td><?= $product->proveedor; ?></td>
                         <td>
-                            <a href="<?= SUB_FOLDER ?>admin/productdelete/<?= $product->codigo ?>" class="btn btn-danger glyphicon glyphicon-remove" role="button"> Eliminar</a>
-                            <a href="<?= SUB_FOLDER ?>admin/productedit/<?= $product->codigo ?>" class="btn btn-info glyphicon glyphicon-pencil"> Editar</a>
+                            <a href="<?= SUB_FOLDER ?>admin/productdelete/<?= $product->codigo ?>" class="btn btn-danger glyphicon glyphicon-remove" role="button">Eliminar</a>
+                            <a href="<?= SUB_FOLDER ?>admin/productedit/<?= $product->codigo ?>" class="btn btn-info glyphicon glyphicon-pencil">Editar</a>
                         </td>
                     </tr>
                   <?php }?>

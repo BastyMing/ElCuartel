@@ -58,6 +58,8 @@ class ProfileController extends Controller
 
                 $params = [ ":password" => $npass , ":id" => $user->id];
 
+                session_destroy();
+                header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."index");
                 return DB::query($sql,$params);
             }else{header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."profile?msj=error de password");}
               
