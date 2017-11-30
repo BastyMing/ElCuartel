@@ -32,7 +32,12 @@ class Products extends Model{
         $total = $total->fetch();
         return ceil(((object)$total)->count / $model->products_per_page);
     }
-
+    public function delete($id){
+        $model = new static();
+        $sql = "DELETE FROM $model->table WHERE $model->primaryKey=:id";
+        $params = [ ":id" => $id];
+        DB::query($sql, $params);
+    }
     public static function buscar($param){
         $model = new static();
         $param = explode(" ", trim($param));

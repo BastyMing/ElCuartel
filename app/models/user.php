@@ -31,6 +31,12 @@ class User extends Model{
         if ($user->nivel==2) return true;
         else return false;
     }
+    function delete($correo){
+        $model = new static();
+        $sql = "DELETE FROM $model->table WHERE $model->primaryKey=:correo";
+        $params = [ ":correo" => $correo];
+        DB::query($sql, $params);
+    }
     function findall(){
         $model = new static();
         $sql = "SELECT * FROM ".$model->table;

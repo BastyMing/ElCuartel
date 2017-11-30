@@ -37,19 +37,26 @@ class AdminController extends Controller
         Response::render( "adminPanel/dashboard" );
         Response::render( "adminPanel/dashboard", [ "contenido" => "adminPanel/UserCreate", "datos"=> $datos ] );
     }
-    public function actionUserDelete($id=0)
+    public function actionUserDelete($correo=null)
     {
-        Response::render( "adminPanel/dashboard" );
+        if (User::isAdmin($_SESSION["USERHASH"])) {
+            User::delete($correo);
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."admin/user/modify/");
+        }
+        
     }
     public function actionProductEdit($id=null)
     {
         $datos = Products::find($id);
         $datos->button = "Editar";
         Response::render( "adminPanel/dashboard" );
-        Response::render( "adminPanel/dashboard", [ "contenido" => "adminPanel/UserCreate", "datos"=> $datos ] );
+        Response::render( "adminPanel/dashboard", [ "contenido" => "adminPanel/ProductCreate", "datos"=> $datos ] );
     }
     public function actionProductDelete($id=0)
     {
-        Response::render( "adminPanel/dashboard" );
+        if (User::isAdmin($_SESSION["USERHASH"])) {
+            Products::delete($id);
+            header("Location: http://".$_SERVER['SERVER_NAME'].SUB_FOLDER."admin/product/modify/");
+        }
     }
 }
