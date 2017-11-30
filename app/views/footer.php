@@ -17,7 +17,7 @@
     </style>
     <footer class="footer">
         <div>
-            <p>© 2017 Copyright JOMIBAC Corporation </p>
+            <p>© 2017 Copyright JOMIBACs Corporation </p>
         </div>
     </footer>
 
